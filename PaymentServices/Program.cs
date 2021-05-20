@@ -17,6 +17,7 @@ namespace PaymentServices
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Sets the startup form
             Application.Run(new frmCapturePayment());
         }
     }

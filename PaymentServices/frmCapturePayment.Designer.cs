@@ -42,32 +42,36 @@ namespace PaymentServices
             this.txbChange = new System.Windows.Forms.TextBox();
             this.txbTendered = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnViewPayments = new System.Windows.Forms.Button();
             this.pnlCard.SuspendLayout();
             this.pnlCash.SuspendLayout();
             this.SuspendLayout();
             // 
             // txbOrder
             // 
-            this.txbOrder.Location = new System.Drawing.Point(50, 36);
+            this.txbOrder.Location = new System.Drawing.Point(57, 48);
+            this.txbOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbOrder.Name = "txbOrder";
             this.txbOrder.PlaceholderText = "Order ID";
-            this.txbOrder.Size = new System.Drawing.Size(100, 23);
+            this.txbOrder.Size = new System.Drawing.Size(114, 27);
             this.txbOrder.TabIndex = 0;
             // 
             // txbAmount
             // 
-            this.txbAmount.Location = new System.Drawing.Point(50, 79);
+            this.txbAmount.Location = new System.Drawing.Point(57, 105);
+            this.txbAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbAmount.Name = "txbAmount";
             this.txbAmount.PlaceholderText = "Amount";
-            this.txbAmount.Size = new System.Drawing.Size(100, 23);
+            this.txbAmount.Size = new System.Drawing.Size(114, 27);
             this.txbAmount.TabIndex = 1;
             // 
             // txbReference
             // 
-            this.txbReference.Location = new System.Drawing.Point(50, 121);
+            this.txbReference.Location = new System.Drawing.Point(57, 161);
+            this.txbReference.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbReference.Name = "txbReference";
             this.txbReference.PlaceholderText = "Payment Reference";
-            this.txbReference.Size = new System.Drawing.Size(100, 23);
+            this.txbReference.Size = new System.Drawing.Size(114, 27);
             this.txbReference.TabIndex = 2;
             // 
             // cmbPaymentType
@@ -77,9 +81,10 @@ namespace PaymentServices
             this.cmbPaymentType.Items.AddRange(new object[] {
             "Card",
             "Cash"});
-            this.cmbPaymentType.Location = new System.Drawing.Point(50, 162);
+            this.cmbPaymentType.Location = new System.Drawing.Point(57, 216);
+            this.cmbPaymentType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbPaymentType.Name = "cmbPaymentType";
-            this.cmbPaymentType.Size = new System.Drawing.Size(121, 23);
+            this.cmbPaymentType.Size = new System.Drawing.Size(138, 28);
             this.cmbPaymentType.TabIndex = 3;
             this.cmbPaymentType.SelectedIndexChanged += new System.EventHandler(this.cmbPaymentType_SelectedIndexChanged);
             // 
@@ -88,34 +93,38 @@ namespace PaymentServices
             this.pnlCard.Controls.Add(this.txbProvider);
             this.pnlCard.Controls.Add(this.txbLastFour);
             this.pnlCard.Controls.Add(this.txbHolder);
-            this.pnlCard.Location = new System.Drawing.Point(281, 36);
+            this.pnlCard.Location = new System.Drawing.Point(321, 48);
+            this.pnlCard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlCard.Name = "pnlCard";
-            this.pnlCard.Size = new System.Drawing.Size(200, 100);
+            this.pnlCard.Size = new System.Drawing.Size(229, 133);
             this.pnlCard.TabIndex = 4;
             this.pnlCard.Visible = false;
             // 
             // txbProvider
             // 
-            this.txbProvider.Location = new System.Drawing.Point(68, 70);
+            this.txbProvider.Location = new System.Drawing.Point(78, 93);
+            this.txbProvider.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbProvider.Name = "txbProvider";
             this.txbProvider.PlaceholderText = "Provider";
-            this.txbProvider.Size = new System.Drawing.Size(100, 23);
+            this.txbProvider.Size = new System.Drawing.Size(114, 27);
             this.txbProvider.TabIndex = 2;
             // 
             // txbLastFour
             // 
-            this.txbLastFour.Location = new System.Drawing.Point(68, 40);
+            this.txbLastFour.Location = new System.Drawing.Point(78, 53);
+            this.txbLastFour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbLastFour.Name = "txbLastFour";
             this.txbLastFour.PlaceholderText = "Last 4";
-            this.txbLastFour.Size = new System.Drawing.Size(100, 23);
+            this.txbLastFour.Size = new System.Drawing.Size(114, 27);
             this.txbLastFour.TabIndex = 1;
             // 
             // txbHolder
             // 
-            this.txbHolder.Location = new System.Drawing.Point(68, 10);
+            this.txbHolder.Location = new System.Drawing.Point(78, 13);
+            this.txbHolder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbHolder.Name = "txbHolder";
             this.txbHolder.PlaceholderText = "Cardholder";
-            this.txbHolder.Size = new System.Drawing.Size(100, 23);
+            this.txbHolder.Size = new System.Drawing.Size(114, 27);
             this.txbHolder.TabIndex = 0;
             // 
             // pnlCash
@@ -123,51 +132,67 @@ namespace PaymentServices
             this.pnlCash.Controls.Add(this.txbCurrency);
             this.pnlCash.Controls.Add(this.txbChange);
             this.pnlCash.Controls.Add(this.txbTendered);
-            this.pnlCash.Location = new System.Drawing.Point(281, 162);
+            this.pnlCash.Location = new System.Drawing.Point(321, 216);
+            this.pnlCash.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlCash.Name = "pnlCash";
-            this.pnlCash.Size = new System.Drawing.Size(200, 100);
+            this.pnlCash.Size = new System.Drawing.Size(229, 133);
             this.pnlCash.TabIndex = 5;
             this.pnlCash.Visible = false;
             // 
             // txbCurrency
             // 
-            this.txbCurrency.Location = new System.Drawing.Point(68, 69);
+            this.txbCurrency.Location = new System.Drawing.Point(78, 92);
+            this.txbCurrency.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbCurrency.Name = "txbCurrency";
             this.txbCurrency.PlaceholderText = "Currency";
-            this.txbCurrency.Size = new System.Drawing.Size(100, 23);
+            this.txbCurrency.Size = new System.Drawing.Size(114, 27);
             this.txbCurrency.TabIndex = 2;
             // 
             // txbChange
             // 
-            this.txbChange.Location = new System.Drawing.Point(68, 40);
+            this.txbChange.Location = new System.Drawing.Point(78, 53);
+            this.txbChange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbChange.Name = "txbChange";
             this.txbChange.PlaceholderText = "Change";
-            this.txbChange.Size = new System.Drawing.Size(100, 23);
+            this.txbChange.Size = new System.Drawing.Size(114, 27);
             this.txbChange.TabIndex = 1;
             // 
             // txbTendered
             // 
-            this.txbTendered.Location = new System.Drawing.Point(68, 11);
+            this.txbTendered.Location = new System.Drawing.Point(78, 15);
+            this.txbTendered.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTendered.Name = "txbTendered";
             this.txbTendered.PlaceholderText = "Tendered";
-            this.txbTendered.Size = new System.Drawing.Size(100, 23);
+            this.txbTendered.Size = new System.Drawing.Size(114, 27);
             this.txbTendered.TabIndex = 0;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(230, 275);
+            this.btnSubmit.Location = new System.Drawing.Point(70, 369);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(86, 31);
             this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnViewPayments
+            // 
+            this.btnViewPayments.Location = new System.Drawing.Point(342, 368);
+            this.btnViewPayments.Name = "btnViewPayments";
+            this.btnViewPayments.Size = new System.Drawing.Size(171, 32);
+            this.btnViewPayments.TabIndex = 7;
+            this.btnViewPayments.Text = "View Payments";
+            this.btnViewPayments.UseVisualStyleBackColor = true;
+            this.btnViewPayments.Click += new System.EventHandler(this.btnViewPayments_Click);
+            // 
             // frmCapturePayment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 310);
+            this.ClientSize = new System.Drawing.Size(667, 413);
+            this.Controls.Add(this.btnViewPayments);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.pnlCash);
             this.Controls.Add(this.pnlCard);
@@ -175,6 +200,7 @@ namespace PaymentServices
             this.Controls.Add(this.txbReference);
             this.Controls.Add(this.txbAmount);
             this.Controls.Add(this.txbOrder);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCapturePayment";
             this.Text = "Form1";
             this.pnlCard.ResumeLayout(false);
@@ -201,6 +227,7 @@ namespace PaymentServices
         private System.Windows.Forms.TextBox txbChange;
         private System.Windows.Forms.TextBox txbTendered;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnViewPayments;
     }
 }
 

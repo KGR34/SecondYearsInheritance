@@ -12,6 +12,7 @@ namespace PaymentServices
 {
     public partial class frmCapturePayment : Form
     {
+        
         public frmCapturePayment()
         {
             InitializeComponent();
@@ -19,41 +20,46 @@ namespace PaymentServices
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            CashPayment cashP;
-            CardPayment cardP;
 
+            //Fields for the parent, we can store them before doing stuff specific to the children
             int orderID = Convert.ToInt32(txbOrder.Text);
-            double amount = Convert.ToDouble(txbAmount.Text);
             DateTime date = DateTime.Now;
-            string reference = txbReference.Text;
-
+            double amount = Convert.ToDouble(txbAmount.Text);
+            string refernce = txbReference.Text;
+            
+            //Checking whats selected, and creating an object depending on that
             if (cmbPaymentType.SelectedItem.Equals("Cash"))
             {
                 // cash object
                 double tendered = Convert.ToDouble(txbTendered.Text);
                 double change = Convert.ToDouble(txbChange.Text);
                 string currency = txbCurrency.Text;
-                cashP = new CashPayment(tendered, change, currency,
-                    orderID, date, amount, reference);
+
+                //created object
+                CashPayment cashP = new CashPayment(tendered, change, currency, orderID, date, amount, refernce);
+                //storing the object in a util class so that it can be accessed by other classes
                 ListUtil.cashTransactions.Add(cashP);
+
+                MessageBox.Show("Cash Payment Created \n" + "Amount R: " + cashP.Amount);
+
             }
             else
             {
                 // card object
-                string cardholder = txbHolder.Text;
-                string provider = txbProvider.Text;
+                string holderName = txbHolder.Text;
                 string lastFour = txbLastFour.Text;
-                cardP = new CardPayment(orderID, date, amount, reference,
-                    cardholder, lastFour, provider);
-                ListUtil.cardTransactions.Add(cardP);
-            }
+                string provider = txbProvider.Text;
 
-            frmViewPayments fv = new frmViewPayments();
-            this.Hide();
-            fv.ShowDialog();
-            this.Show();
+                //created object
+                CardPayment cardP = new CardPayment(holderName, lastFour, provider, orderID, date, amount, refernce);
+                //storing the object in a util class so that it can be accessed by other classes
+                ListUtil.cardTransactions.Add(cardP);
+
+                MessageBox.Show("Card Payment Created \n" + "Amount R: " + cardP.Amount);
+            }
         }
 
+        //Showing/hiding UI
         private void cmbPaymentType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbPaymentType.SelectedItem.Equals("Cash"))
@@ -65,6 +71,12 @@ namespace PaymentServices
                 pnlCash.Visible = false;
                 pnlCard.Visible = true;
             }
+        }
+
+        private void btnViewPayments_Click(object sender, EventArgs e)
+        {
+            frmViewPayments frmView = new frmViewPayments();//
+            frmView.Show();
         }
     }
 }
