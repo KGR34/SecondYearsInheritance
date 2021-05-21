@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PaymentServices
 {
-    class CardPayment : Payment
+    public class CardPayment : Payment
     {
         public string HolderName { get; set; }
         public string LastFourDigits { get; set; }

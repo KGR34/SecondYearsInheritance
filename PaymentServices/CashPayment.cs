@@ -5,7 +5,7 @@ using System.Text;
 namespace PaymentServices
 {
     //AN EXTENTION OF THE PARENT CLASS - PAYMENT
-    class CashPayment : Payment
+    public class CashPayment : Payment
     {
         public double Tendered { get; set; }
         public double Change { get; set; }

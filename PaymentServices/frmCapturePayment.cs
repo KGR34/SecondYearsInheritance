@@ -37,11 +37,9 @@ namespace PaymentServices
 
                 //created object
                 CashPayment cashP = new CashPayment(tendered, change, currency, orderID, date, amount, refernce);
-                //storing the object in a util class so that it can be accessed by other classes
-                ListUtil.cashTransactions.Add(cashP);
-
-                MessageBox.Show("Cash Payment Created \n" + "Amount R: " + cashP.Amount);
-
+                //new instance of the payment processor service
+                PaymentProcessor paymentService = new PaymentProcessor();
+                paymentService.ProcessThePayment(cashP);
             }
             else
             {
@@ -52,10 +50,8 @@ namespace PaymentServices
 
                 //created object
                 CardPayment cardP = new CardPayment(holderName, lastFour, provider, orderID, date, amount, refernce);
-                //storing the object in a util class so that it can be accessed by other classes
-                ListUtil.cardTransactions.Add(cardP);
-
-                MessageBox.Show("Card Payment Created \n" + "Amount R: " + cardP.Amount);
+                PaymentProcessor paymentService = new PaymentProcessor();
+                paymentService.ProcessThePayment(cardP);
             }
         }
 
@@ -73,9 +69,10 @@ namespace PaymentServices
             }
         }
 
+        //Opens the form that allows us to view the payments we made
         private void btnViewPayments_Click(object sender, EventArgs e)
         {
-            frmViewPayments frmView = new frmViewPayments();//
+            frmViewPayments frmView = new frmViewPayments();
             frmView.Show();
         }
     }

@@ -25,13 +25,13 @@ namespace PaymentServices
             //populates the list boxes
             lstCardPayments.Items.Clear();
             //loops through the card transactions in the listutil class and adds them to the list box of card payments
-            foreach (CardPayment payment in ListUtil.cardTransactions)
+            foreach (CardPayment payment in ListUtil.CardTransactions)
             {
                 lstCardPayments.Items.Add(payment.OrderID + " -  R" + payment.Amount);
             }
 
             lstCashPayments.Items.Clear();
-            foreach (CashPayment payment in ListUtil.cashTransactions)
+            foreach (CashPayment payment in ListUtil.CashTransactions)
             {
                 lstCashPayments.Items.Add(payment.OrderID + " -  R" + payment.Amount);
             }
@@ -58,7 +58,7 @@ namespace PaymentServices
 
             //take card payment from the list, at this specific position, 
             //and store it in an object
-            CardPayment cardPayment = ListUtil.cardTransactions[position];
+            CardPayment cardPayment = ListUtil.CardTransactions[position];
 
             //we set the labels to show the info about a payment
             lblOrderID.Text = "Order ID : " + cardPayment.OrderID.ToString();
@@ -87,7 +87,7 @@ namespace PaymentServices
             //take card payment from the list, at this specific position, 
             //and store it in an object
 
-            CashPayment cashPayment = ListUtil.cashTransactions[position];
+            CashPayment cashPayment = ListUtil.CashTransactions[position];
 
 
             //we set the labels to show the info about a payment
