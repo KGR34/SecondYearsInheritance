@@ -21,5 +21,10 @@ namespace PaymentServices
             LastFourDigits = lastFourDigits;
             Provider = provider;
         }
+
+        public override string Display()
+        {
+            return "Card Payment\t Order ID - " + base.OrderID + "\tAmount R: " + base.Amount;
+        }
     }
 }

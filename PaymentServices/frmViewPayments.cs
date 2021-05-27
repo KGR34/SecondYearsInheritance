@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -30,11 +31,37 @@ namespace PaymentServices
                 lstCardPayments.Items.Add(payment.OrderID + " -  R" + payment.Amount);
             }
 
+
             lstCashPayments.Items.Clear();
             foreach (CashPayment payment in ListUtil.cashTransactions)
             {
                 lstCashPayments.Items.Add(payment.OrderID + " -  R" + payment.Amount);
             }
+
+            //temp list, just for display
+            List<Payment> paymentsO = ListUtil.payments.OrderByDescending(x => x.Amount).ToList();
+
+            //Populates the single list of payments
+            foreach (Payment p in paymentsO)
+            {
+                lstPayments.Items.Add(p.Display());
+
+                //check if card payment
+                if(p is CardPayment) 
+                {
+                                        //Casting regular payment to card payment
+                    CardPayment card = (CardPayment)p;
+                    lstPayments.Items.Add("Card Holder Name \t" + card.HolderName);
+                }
+                else 
+                {
+                    CashPayment cash = (CashPayment)p;
+                    lstPayments.Items.Add("Currency \t" + cash.Currency);
+                }
+            }
+
+            double sum = ListUtil.payments.Sum(x => x.Amount);
+            MessageBox.Show(sum.ToString());
         }
 
         private void HideEverything() 

@@ -37,8 +37,13 @@ namespace PaymentServices
 
                 //created object
                 CashPayment cashP = new CashPayment(tendered, change, currency, orderID, date, amount, refernce);
+
+                //wont have orderID, Date, amount
+                CashPayment cashP2 = new CashPayment(tendered, change, currency, refernce);
+                
                 //storing the object in a util class so that it can be accessed by other classes
                 ListUtil.cashTransactions.Add(cashP);
+                ListUtil.payments.Add(cashP);
 
                 MessageBox.Show("Cash Payment Created \n" + "Amount R: " + cashP.Amount);
 
@@ -54,6 +59,7 @@ namespace PaymentServices
                 CardPayment cardP = new CardPayment(holderName, lastFour, provider, orderID, date, amount, refernce);
                 //storing the object in a util class so that it can be accessed by other classes
                 ListUtil.cardTransactions.Add(cardP);
+                ListUtil.payments.Add(cardP);
 
                 MessageBox.Show("Card Payment Created \n" + "Amount R: " + cardP.Amount);
             }

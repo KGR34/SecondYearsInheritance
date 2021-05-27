@@ -44,6 +44,7 @@ namespace PaymentServices
             this.lblReference = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
+            this.lstPayments = new System.Windows.Forms.ListBox();
             this.grpPayment.SuspendLayout();
             this.pnlCash.SuspendLayout();
             this.pnlCard.SuspendLayout();
@@ -196,11 +197,21 @@ namespace PaymentServices
             this.lblOrderID.TabIndex = 0;
             this.lblOrderID.Text = "Order ID:";
             // 
+            // lstPayments
+            // 
+            this.lstPayments.FormattingEnabled = true;
+            this.lstPayments.ItemHeight = 20;
+            this.lstPayments.Location = new System.Drawing.Point(894, 63);
+            this.lstPayments.Name = "lstPayments";
+            this.lstPayments.Size = new System.Drawing.Size(400, 484);
+            this.lstPayments.TabIndex = 3;
+            // 
             // frmViewPayments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 622);
+            this.ClientSize = new System.Drawing.Size(1389, 622);
+            this.Controls.Add(this.lstPayments);
             this.Controls.Add(this.grpPayment);
             this.Controls.Add(this.lstCashPayments);
             this.Controls.Add(this.lstCardPayments);
@@ -235,5 +246,6 @@ namespace PaymentServices
         private System.Windows.Forms.Label lblProvider;
         private System.Windows.Forms.Label lblLast4;
         private System.Windows.Forms.Label lblHolder;
+        private System.Windows.Forms.ListBox lstPayments;
     }
 }
